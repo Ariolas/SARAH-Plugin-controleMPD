@@ -1,0 +1,10 @@
+{
+  "modules" : {
+    "controleMPD" : {
+      "description": "Contrôle de serveur MPD",
+      "version": "1.0",
+	  "serveur": "xxx.xxx.xxx.xxx",
+	  "port": "6600"
+    }
+  }
+}
