@@ -2,6 +2,7 @@
   <rule id="rulecontroleMPD" scope="public">
     <example>Sarah tu es cool</example>
     <tag>out.action=new Object(); </tag>
+	<tag>out.action.piece="";</tag>
 
     <item>Sarah</item>
 
@@ -26,6 +27,13 @@
 	  
 	  <item>quelle est cette musique<tag>out.action.commande="currentsong"</tag></item>
     </one-of>
+	
+	<item repeat="0-1">
+	  <one-of>
+			<item>dans la chambre<tag>out.action.piece="chambre"</tag></item>
+			<item>dans le salon<tag>out.action.piece="salon"</tag></item>
+    </one-of>
+    </item>
 
     <tag>out.action._attributes.uri="http://127.0.0.1:8080/sarah/controleMPD";</tag>
   </rule> 

@@ -2,9 +2,23 @@
   "modules" : {
     "controleMPD" : {
       "description": "Contrôle de serveur MPD",
-      "version": "1.0",
-	  "serveur": "xxx.xxx.xxx.xxx",
-	  "port": "6600"
+      "version": "1.2",
+        
+	  "Piece 1": " ",
+	  "serveur1": "xxx.xxx.xxx.xxx",
+	  "port1": "6600",
+	  
+	  "Piece 2": " ",
+	  "serveur2": "xxx.xxx.xxx.xxx",
+	  "port2": "6600",
+	  
+	  "Piece 3": " ",
+	  "serveur3": "xxx.xxx.xxx.xxx",
+	  "port3": "6600",
+	  
+	  "Piece 4": " ",
+	  "serveur4": "xxx.xxx.xxx.xxx",
+	  "port4": "6600"
     }
   }
 }
