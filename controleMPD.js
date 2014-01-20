@@ -11,25 +11,37 @@ exports.action = function(data, callback, config, SARAH) {
 	
 	var systeme = os.platform();
 	
-	/* Futur gestion du multiroom
+	//gestion du multiroom
 	if (data.piece !="")
 	{
 		switch (data.piece) 
 		{
-			case "salon":		//reprendre config.Piece1
+			case "1":		//reprendre config.Piece_1
 				
 				var host = config.serveur1;
 				var port = config.port1;
 			break;
 
-			case "chambre":		//reprendre config.Piece2
+			case "2":		//reprendre config.Piece_2
 				
 				var host = config.serveur2;
 				var port = config.port2;
 			break;
+			
+			case "3":		//reprendre config.Piece_3
+				
+				var host = config.serveur3;
+				var port = config.port3;
+			break;
+			
+			case "4":		//reprendre config.Piece_4
+				
+				var host = config.serveur4;
+				var port = config.port4;
+			break;
 		}
 	}
-	*/
+	
 	
 	switch (systeme)
 	{
@@ -142,7 +154,23 @@ exports.action = function(data, callback, config, SARAH) {
 						callback({'tts' : "La musique en lecture est "+reponse});
 					});
 					
-				break;		
+				break;
+
+				case "maj":
+					
+					var piece = "config.Piece_1";
+					var serveur = new Array();
+
+					serveur[0] = config.Nb_serv;
+					for(var i = 1 ; i <= config.Nb_serv ; i++)
+					{
+						piece = "config.Piece_"+i;
+						serveur[i] = eval(piece);
+					}
+					update(data.directory, serveur);
+					
+				break;
+				
 				
 			};
 		break;
@@ -256,7 +284,22 @@ exports.action = function(data, callback, config, SARAH) {
 						callback({'tts' : "La musique en lecture est "+reponse});
 					});
 					
-				break;		
+				break;	
+
+				case "maj":
+					
+					var piece = "config.Piece_1";
+					var serveur = new Array();
+
+					serveur[0] = config.Nb_serv;
+					for(var i = 1 ; i <= config.Nb_serv ; i++)
+					{
+						piece = "config.Piece_"+i;
+						serveur[i] = eval(piece);
+					}
+					update(data.directory, serveur);
+					
+				break;
 				
 			};
 		break;
@@ -266,4 +309,35 @@ exports.action = function(data, callback, config, SARAH) {
   console.log("FAIT");
 	callback({});
 }
+
+  // ------------------------------------------
+  //  UPDATING XML
+  // ------------------------------------------
+
+var update = function(directory, serv_MPD)
+{
+  
+  var fs   = require('fs');
+  var file = directory + '/../plugins/controleMPD/controleMPD.xml';
+  var xml  = fs.readFileSync(file,'utf8');
+  
+  var nombre_serveur = serv_MPD[0];
+  
+  var replace  = '§ -->\n';
+      replace += '	<item repeat="0-1">\n';
+	  replace += '		<one-of>\n';
+  for(var i = 1 ; i <= nombre_serveur ; i++)
+  {
+	  var lieu =       replace += '			<item>'+serv_MPD[i]+'<tag>out.action.piece="'+i+'";</tag></item>\n';
+  }
+      replace += '		</one-of>\n';
+      replace += '	</item>\n';
+      replace += '	<!-- §';
+  
+  var regexp = new RegExp('§[^§]+§','gm');
+  var xml    = xml.replace(regexp,replace);
+  
+  fs.writeFileSync(file, xml, 'utf8');
+}
+  
 

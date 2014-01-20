@@ -2,21 +2,23 @@
   "modules" : {
     "controleMPD" : {
       "description": "Contrôle de serveur MPD",
-      "version": "1.2",
+      "version": "2.0",
         
-	  "Piece 1": " ",
+	  "Nb_serv": "4",
+		
+	  "Piece_1": "piece 1",
 	  "serveur1": "xxx.xxx.xxx.xxx",
 	  "port1": "6600",
 	  
-	  "Piece 2": " ",
+	  "Piece_2": "piece 2",
 	  "serveur2": "xxx.xxx.xxx.xxx",
 	  "port2": "6600",
 	  
-	  "Piece 3": " ",
+	  "Piece_3": "piece 3",
 	  "serveur3": "xxx.xxx.xxx.xxx",
 	  "port3": "6600",
 	  
-	  "Piece 4": " ",
+	  "Piece_4": "piece 4",
 	  "serveur4": "xxx.xxx.xxx.xxx",
 	  "port4": "6600"
     }

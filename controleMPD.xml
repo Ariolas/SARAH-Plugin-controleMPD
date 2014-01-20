@@ -26,15 +26,30 @@
 	  <item>baisse beaucoup le son<tag>out.action.commande="baissebeaucoupson"</tag></item>
 	  
 	  <item>quelle est cette musique<tag>out.action.commande="currentsong"</tag></item>
+	  
+	  <item>Met a jour les serveurs de musiques<tag>out.action.commande="maj"</tag></item>
     </one-of>
 	
 	<item repeat="0-1">
-	  <one-of>
-			<item>dans la chambre<tag>out.action.piece="chambre"</tag></item>
-			<item>dans le salon<tag>out.action.piece="salon"</tag></item>
-    </one-of>
-    </item>
-
+		<one-of>
+			<item>Dans le</item>
+			<item>Dans la</item>
+			<item>Dans l'</item>
+		</one-of>
+	</item>	
+	
+	
+	<!-- Automatic Generation § -->
+	<item repeat="0-1">
+		<one-of>
+			<item>Piece_1<tag>out.action.piece="1";</tag></item>
+			<item>Piece_2<tag>out.action.piece="2";</tag></item>
+			<item>Piece_3<tag>out.action.piece="3";</tag></item>
+			<item>Piece_4<tag>out.action.piece="4";</tag></item>
+		</one-of>
+	</item>
+	<!-- § Automatic Generation -->
+	
     <tag>out.action._attributes.uri="http://127.0.0.1:8080/sarah/controleMPD";</tag>
   </rule> 
 </grammar>

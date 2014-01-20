@@ -22,6 +22,29 @@
 		_ baisse le son<br/>
 		_ baisse beaucoup le son<br/>
 		_ quelle est cette musique (attention a la crise de fou rire avec les noms etrangers)<br/>
+		
+		_ Met a jour les serveurs de musiques<br/>
+		<br/>
+		
+		<b>La V2.0 apporte le suppor du multiroom : </b><br/>
+		L'un des interets de MPD est sa legerete, permettant d'en faire tourner plusieurs aisement sur une meme machine. Cela permet de faire du multiroom et d'envoyer sa musique partout.<br/>
+		Une fois vos differents serveurs MPD mis en place, voici la configuration a faire :<br/>
+		_ Ouvrir le champ de config<br/>
+		_ Entrer le nombre de serveurs actifs (4maxi sans avoir a mettre les mains dans le camboui)<br/>
+		_ Entrer le nom de la piece, l'adresse du serveur MPD et son port<br/>
+		_ Valider<br/>
+		<br/>
+		_ Ensuite, il suffit de demander a Sarah "<b>Met a jour les serveurs de musiques</b>"<br/>
+		
+		Normalement, "controleMPD.xml" se met automatiquement a jour avec les noms configurés.<br/>
+		Il suffit de rajouter "<b> dans le/la/l' </b>" puis "<b>le nom de la piece </b>" apres votre requete. Si vous ne precisez pas, le serveur 1 est commande par defaut<br/> 
+	
+		<br/>
+
+		<b>Pour pouvoir gerer plus de 4 serveurs MPD : </b><br/>
+		_ Ajouter un serveur dans "<b>controleMPD.prop</b>" en recopiant la structure existante.<br/>
+		_ Ajouter le "<b>case</b>" correspondant dans le "<b>controleMPD.js</b>" en recopiant la strucutre existante.<br/>
+		_ Ensuite, redemarrer Sarah<br/>
 		<br/>
 		
 		<b>Pour le support Linux, il est necessaire d'installer MPC sur le serveur hebergeant Sarah :</b><br/>
